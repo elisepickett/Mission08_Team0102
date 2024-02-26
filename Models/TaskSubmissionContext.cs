@@ -19,7 +19,7 @@ namespace Mission08_Team0102.Models
                 new Category { CategoryId = 1, CategoryName = "Home" },
                 new Category { CategoryId = 2, CategoryName = "School" },
                 new Category { CategoryId = 3, CategoryName = "Work" },
-                new Category { CategoryId = 4, CategoryName = "Church" },
+                new Category { CategoryId = 4, CategoryName = "Church" }
 
             );
         }
