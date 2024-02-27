@@ -26,34 +26,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddTask">Add a Task</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EditTask">Edit Tasks</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="EditTask">Edit a Task</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
     <div class="container">
         <main role="main" class="pb-3">
-            <div class="row">
-                <div class="col-md-6" >
-                    <h2><Quadrant I: Important / Urgent</h2>
-                    @RenderSection("Quadrant1", required: false)
-                </div>
-                <div class="col-md-6">
-                    <h2><Quadrant II: Important / Not Urgent</h2>
-                    @RenderSection("Quadrant2", required: false)
-                </div>
-                <div class="col-md-6">
-                    <h2><Quadrant III: Not Important / Urgent</h2>
-                    @RenderSection("Quadrant3", required: false)
-                </div>
-                <div class="col-md-6">
-                    <h2><Quadrant IV: Not Important / Not Urgent</h2>
-                    @RenderSection("Quadrant4", required: false)
-                </div>
-            </div>
+            @RenderBody()
         </main>
     </div>
 
