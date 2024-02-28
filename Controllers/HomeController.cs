@@ -103,7 +103,13 @@ namespace Mission08_Team0102.Controllers
 
         public IActionResult Quadrant()
         {
-            return View();
+            var tasks = _context.Tasklists
+                .OrderBy(x => x.TaskName).ToList();
+
+            ViewBag.Categories = _context.Categories
+                .ToList();
+
+            return View(tasks);
         }
     }
 }

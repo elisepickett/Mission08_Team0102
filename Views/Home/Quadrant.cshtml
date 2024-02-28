@@ -2,4 +2,159 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Tasklist Quadrants";
 }
+
+@model List<Tasklist>
+
+<div class="container">
+    <br /><br /><br />
+    <div class="row">
+        <div class="col">
+            <h3 style="text-align: center">Urgent</h3><br />
+        </div>
+        <div class="col">
+            <h3 style="text-align: center">Not Urgent</h3><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-auto d-flex align-items-center justify-content-center">
+            <h5>Important</h5>
+        </div>
+        <div class="col">
+            <h2>Quadrant 1</h2>
+            <table class="table table-bordered table-light">
+                <thead>
+                    <tr>
+                        <td>Category</td>
+                        <td>Task</td>
+                        <td>Quadrant</td>
+                        <td>Due Date</td>
+                        <td>Completion Status</td>
+                    </tr>
+                </thead>
+                @foreach (var x in Model)
+                {
+                    if (x.Quadrant == 1)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@(x.Category?.CategoryName ?? "No Category")</td>
+                                <td>@x.TaskName</td>
+                                <td>@x.Quadrant</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Completion</td>
+
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    }
+                }
+            </table>
+        </div>
+        <div class="col">
+            <h2>Quadrant 2</h2>
+            <table class="table table-bordered table-light">
+                <thead>
+                    <tr>
+                        <td>Category</td>
+                        <td>Task</td>
+                        <td>Quadrant</td>
+                        <td>Due Date</td>
+                        <td>Completion Status</td>
+                    </tr>
+                </thead>
+                @foreach (var x in Model)
+                {
+                    if (x.Quadrant == 2)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@(x.Category?.CategoryName ?? "No Category")</td>
+                                <td>@x.TaskName</td>
+                                <td>@x.Quadrant</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Completion</td>
+
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+    <br /><br /><br />
+    <div class="row">
+        <div class="col-sm-auto d-flex align-items-center justify-content-center">
+            <h5>Not <br /> Important</h5>
+        </div>
+        <div class="col">
+            <h2>Quadrant 3</h2>
+            <table class="table table-bordered table-light">
+                <thead>
+                    <tr>
+                        <td>Category</td>
+                        <td>Task</td>
+                        <td>Quadrant</td>
+                        <td>Due Date</td>
+                        <td>Completion Status</td>
+                    </tr>
+                </thead>
+                @foreach (var x in Model)
+                {
+                    if (x.Quadrant == 3)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@(x.Category?.CategoryName ?? "No Category")</td>
+                                <td>@x.TaskName</td>
+                                <td>@x.Quadrant</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Completion</td>
+
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    }
+                }
+            </table>
+        </div>
+        <div class="col">
+            <h2>Quadrant 4</h2>
+            <table class="table table-bordered table-light">
+                <thead>
+                    <tr>
+                        <td>Category</td>
+                        <td>Task</td>
+                        <td>Quadrant</td>
+                        <td>Due Date</td>
+                        <td>Completion Status</td>
+                    </tr>
+                </thead>
+                @foreach (var x in Model)
+                {
+                    if (x.Quadrant == 4)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>@(x.Category?.CategoryName ?? "No Category")</td>
+                                <td>@x.TaskName</td>
+                                <td>@x.Quadrant</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Completion</td>
+
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+    <br /><br /><br />
+</div>
