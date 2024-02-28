@@ -7,38 +7,45 @@
 
 @model Tasklist
 
-<h1>Add a Task</h1>
+<br /><br />
+<h1 style="text-align: center">Add a Task</h1>
+<br /><br />
+<div class="form-container form-group">
+    <form method="post">
 
-<form method="post">
+        <input type="hidden" asp-for="TaskId" />
 
-    <input type="hidden" asp-for="TaskId" />
-
-    <label asp-for="CategoryId">Select a Category:</label>
-    <select asp-for="CategoryId">
-        <option value="">Select a Category</option>
-        @foreach (Category c in ViewBag.Categories)
-        {
-            <option value="@c.CategoryId">@c.CategoryName</option>
-        }
-    </select>
-    <br />    
-    <label asp-for="TaskName">Task:</label>
-    <input asp-for="TaskName" />    
-    <br />
-    <label asp-for="Quadrant">Quadrant:</label>
-    <input asp-for="Quadrant" />
-    <br />
-    <label asp-for="DueDate">Due Date:</label>
-    <input asp-for="DueDate"/>
-    <br />
-    <label asp-for="Completion">Has this Task Been Completed?</label>
-    <select asp-for="Completion">
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-    </select>
-    <br />
-
-    <button type="submit">Submit Task</button>
-
-    <div asp-validation-summary="All"></div>
-</form>
+        <label asp-for="CategoryId">Select a Category:</label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Category c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
+        <br /><br />
+        <label asp-for="TaskName">Task:</label>
+        <input asp-for="TaskName" />    
+        <br /><br />
+        <label asp-for="Quadrant">Quadrant:</label>
+        <input asp-for="Quadrant" />
+        <br /><br />
+        <label asp-for="DueDate">Due Date:</label>
+        <input asp-for="DueDate"/>
+        <br /><br />
+        <label asp-for="Completion">Has this Task Been Completed?</label>
+        <select asp-for="Completion">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br /><br />
+        <div class="button_container">
+            <button class="button_submit" type="submit" onclick="clicked(event)">Submit Task</button>
+        </div>
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
+<br />
+<div class="form-container">
+    <img style="text-align: center" src="~/img/time_matrix.jpg" />
+</div>
