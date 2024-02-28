@@ -83,22 +83,9 @@ namespace Mission08_Team0102.Controllers
             return RedirectToAction("EditTask");
         }
 
-        [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Quadrant()
         {
-            var recordToDelete = _context.Tasklists
-                .Single(x => x.TaskId == id);
-
-            return View(recordToDelete);
-        }
-
-        [HttpPost]
-        public IActionResult Delete(Tasklist tasklist)
-        {
-            _context.Tasklists.Remove(tasklist);
-            _context.SaveChanges();
-
-            return RedirectToAction("TasklistView");
+            return View();
         }
     }
 }
