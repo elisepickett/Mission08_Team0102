@@ -7,21 +7,24 @@
 
 @model List<Tasklist>
 
-<div class="container">
-    <br /><br /><br />
+<br /><br /><br />
+<div class="container" style="display: grid">
     <div class="row">
-        <div class="col">
+        <div class="col-1 d-flex align-items-center justify-content-center" style="margin-right: auto">
+        </div>
+        <div class="col-xl-5">
             <h3 style="text-align: center">Urgent</h3><br />
         </div>
-        <div class="col">
+        <div class="col-xl-5">
             <h3 style="text-align: center">Not Urgent</h3><br />
         </div>
     </div>
+    <br />
     <div class="row">
-        <div class="col-sm-auto d-flex align-items-center justify-content-center">
+        <div class="col-1 d-flex align-items-center justify-content-center" style="margin-right: auto">
             <h5>Important</h5>
         </div>
-        <div class="col">
+        <div class="col-xl-5">
             <h2>Quadrant 1</h2>
             <table class="table table-bordered table-light">
                 <thead>
@@ -53,7 +56,7 @@
                 }
             </table>
         </div>
-        <div class="col">
+        <div class="col-xl-5">
             <h2>Quadrant 2</h2>
             <table class="table table-bordered table-light">
                 <thead>
@@ -88,10 +91,10 @@
     </div>
     <br /><br /><br />
     <div class="row">
-        <div class="col-sm-auto d-flex align-items-center justify-content-center">
+        <div class="col-sm-1 d-flex align-items-center justify-content-center"" style="margin-right: auto">
             <h5>Not <br /> Important</h5>
         </div>
-        <div class="col">
+        <div class="col-lg-5">
             <h2>Quadrant 3</h2>
             <table class="table table-bordered table-light">
                 <thead>
@@ -123,7 +126,7 @@
                 }
             </table>
         </div>
-        <div class="col">
+        <div class="col-lg-5">
             <h2>Quadrant 4</h2>
             <table class="table table-bordered table-light">
                 <thead>
