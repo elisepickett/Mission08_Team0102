@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
 using Mission08_Team0102.Models;
 using System.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
@@ -8,10 +9,12 @@ namespace Mission08_Team0102.Controllers
     public class HomeController : Controller
     {
         private TaskSubmissionContext _context;
+        private readonly string _connectionString;
 
-        public HomeController(TaskSubmissionContext temp)
+        public HomeController(TaskSubmissionContext temp, IConfiguration configuration)
         {
             _context = temp;
+            _connectionString = configuration.GetConnectionString("TaskConnection");
         }
 
         public IActionResult Index()
@@ -77,6 +80,17 @@ namespace Mission08_Team0102.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("EditTask");
+        }
+           
+        public IActionResult DatabaseAction()
+        {
+            using (var connection = new SqliteConnection(_connectionString))
+            {
+                connection.Open();
+
+            }
+
+            return View();
         }
     }
 }
