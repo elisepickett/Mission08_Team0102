@@ -13,7 +13,7 @@ namespace Mission08_Team0102.Models
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
         [Required(ErrorMessage = "The Task Name Field is Required.")]
-        public int TaskName { get; set; }
+        public string TaskName { get; set; }
         [Required(ErrorMessage = "The Quadrant Field is Required.")]
         public int Quadrant { get; set; }
         public DateOnly? DueDate { get; set; }
