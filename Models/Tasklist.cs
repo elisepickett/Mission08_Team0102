@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission08_Team0102.Models
 {
-    public class Task
+    public class Tasklist
     {
         [Key]
         [Required]
@@ -12,9 +12,12 @@ namespace Mission08_Team0102.Models
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; }
         public Category? Category { get; set; }
+        [Required(ErrorMessage = "The Task Name Field is Required.")]
         public int TaskName { get; set; }
+        [Required(ErrorMessage = "The Quadrant Field is Required.")]
         public int Quadrant { get; set; }
         public DateOnly? DueDate { get; set; }
+        [Required(ErrorMessage = "The Completion Field is Required.")]
         public Boolean Completion { get; set; }
     }
 }

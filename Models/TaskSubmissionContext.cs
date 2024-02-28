@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Mission08_Team0102.Models
 {
-    public class TaskSubmissionContext : Controller
+    public class TaskSubmissionContext : DbContext
     {
         public TaskSubmissionContext(DbContextOptions<TaskSubmissionContext> options) : base(options)
         {
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Tasklist> Tasklists { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) //Seed Data 
