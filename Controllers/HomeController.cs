@@ -42,8 +42,8 @@ namespace Mission08_Team0102.Controllers
             }
             else //invalid data
             {
-                ViewBag.Tasklists = _context.Tasklists
-                    .OrderBy(x => x.TaskName)
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName)
                     .ToList();
 
                 return View(response);
@@ -55,7 +55,10 @@ namespace Mission08_Team0102.Controllers
             var tasks = _context.Tasklists
                 .OrderBy(x => x.TaskName).ToList();
 
-            return View("AddTask");
+            ViewBag.Categories = _context.Categories
+                .ToList();
+
+            return View(tasks);
         }
 
         [HttpGet]
@@ -64,7 +67,7 @@ namespace Mission08_Team0102.Controllers
             var recordToEdit = _context.Tasklists
                 .Single(x => x.TaskId == id);
 
-            ViewBag.Majors = _context.Categories
+            ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
@@ -78,6 +81,24 @@ namespace Mission08_Team0102.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("EditTask");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var recordToDelete = _context.Tasklists
+                .Single(x => x.TaskId == id);
+
+            return View(recordToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Tasklist tasklist)
+        {
+            _context.Tasklists.Remove(tasklist);
+            _context.SaveChanges();
+
+            return RedirectToAction("TasklistView");
         }
     }
 }

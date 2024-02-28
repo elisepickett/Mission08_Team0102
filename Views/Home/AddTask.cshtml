@@ -2,6 +2,7 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "Add a Task";
 }
 
 @model Tasklist
@@ -12,8 +13,9 @@
 
     <input type="hidden" asp-for="TaskId" />
 
+    <label asp-for="CategoryId">Select a Category:</label>
     <select asp-for="CategoryId">
-        <option value="">Select a Category:</option>
+        <option value="">Select a Category</option>
         @foreach (Category c in ViewBag.Categories)
         {
             <option value="@c.CategoryId">@c.CategoryName</option>
@@ -29,7 +31,7 @@
     <label asp-for="DueDate">Due Date:</label>
     <input asp-for="DueDate"/>
     <br />
-    <label asp-for="Completion">Has this task been completed?</label>
+    <label asp-for="Completion">Has this Task Been Completed?</label>
     <select asp-for="Completion">
         <option value="true">Yes</option>
         <option value="false">No</option>
