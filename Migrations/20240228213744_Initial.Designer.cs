@@ -11,7 +11,7 @@ using Mission08_Team0102.Models;
 namespace Mission08_Team0102.Migrations
 {
     [DbContext(typeof(TaskSubmissionContext))]
-    [Migration("20240228181242_Initial")]
+    [Migration("20240228213744_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -75,8 +75,9 @@ namespace Mission08_Team0102.Migrations
                     b.Property<int>("Quadrant")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TaskName")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("TaskName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("TaskId");
 
