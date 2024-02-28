@@ -79,5 +79,10 @@ namespace Mission08_Team0102.Controllers
 
             return RedirectToAction("EditTask");
         }
+
+        public IActionResult Quadrant()
+        {
+            return View();
+        }
     }
 }
