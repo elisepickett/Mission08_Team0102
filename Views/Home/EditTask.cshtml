@@ -9,13 +9,14 @@
 
 <br /><br />
 <table class="table table-bordered table-light">
-    <thead>
+    <thead style="text-align: center; font-weight: bold">
         <tr>
             <td>Category</td>
             <td>Task</td>
             <td>Quadrant</td>
             <td>Due Date</td>
             <td>Completion Status</td>
+            <td></td>
         </tr>
     </thead>
 
@@ -29,7 +30,7 @@
                 <td>@x.DueDate</td>
                 <td>@x.Completion</td>
 
-                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                <td style="text-align: center"><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
             </tr>
         </tbody>
     }

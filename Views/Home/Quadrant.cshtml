@@ -31,24 +31,22 @@
                     <tr>
                         <td>Category</td>
                         <td>Task</td>
-                        <td>Quadrant</td>
                         <td>Due Date</td>
-                        <td>Completion Status</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 @foreach (var x in Model)
                 {
-                    if (x.Quadrant == 1)
+                    if (x.Quadrant == 1 & x.Completion == false)
                     {
                         <tbody>
                             <tr>
                                 <td>@(x.Category?.CategoryName ?? "No Category")</td>
                                 <td>@x.TaskName</td>
-                                <td>@x.Quadrant</td>
                                 <td>@x.DueDate</td>
-                                <td>@x.Completion</td>
 
-                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Update</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>
                         </tbody>
@@ -63,24 +61,22 @@
                     <tr>
                         <td>Category</td>
                         <td>Task</td>
-                        <td>Quadrant</td>
                         <td>Due Date</td>
-                        <td>Completion Status</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 @foreach (var x in Model)
                 {
-                    if (x.Quadrant == 2)
+                    if (x.Quadrant == 2 & x.Completion == false)
                     {
                         <tbody>
                             <tr>
                                 <td>@(x.Category?.CategoryName ?? "No Category")</td>
                                 <td>@x.TaskName</td>
-                                <td>@x.Quadrant</td>
                                 <td>@x.DueDate</td>
-                                <td>@x.Completion</td>
 
-                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Update</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>
                         </tbody>
@@ -101,24 +97,22 @@
                     <tr>
                         <td>Category</td>
                         <td>Task</td>
-                        <td>Quadrant</td>
                         <td>Due Date</td>
-                        <td>Completion Status</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 @foreach (var x in Model)
                 {
-                    if (x.Quadrant == 3)
+                    if (x.Quadrant == 3 & x.Completion == false)
                     {
                         <tbody>
                             <tr>
                                 <td>@(x.Category?.CategoryName ?? "No Category")</td>
                                 <td>@x.TaskName</td>
-                                <td>@x.Quadrant</td>
                                 <td>@x.DueDate</td>
-                                <td>@x.Completion</td>
 
-                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Update</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>
                         </tbody>
@@ -133,24 +127,22 @@
                     <tr>
                         <td>Category</td>
                         <td>Task</td>
-                        <td>Quadrant</td>
                         <td>Due Date</td>
-                        <td>Completion Status</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </thead>
                 @foreach (var x in Model)
                 {
-                    if (x.Quadrant == 4)
+                    if (x.Quadrant == 4 & x.Completion == false)
                     {
                         <tbody>
                             <tr>
                                 <td>@(x.Category?.CategoryName ?? "No Category")</td>
                                 <td>@x.TaskName</td>
-                                <td>@x.Quadrant</td>
                                 <td>@x.DueDate</td>
-                                <td>@x.Completion</td>
 
-                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a class="btn btn-outline-dark" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Update</a></td>
                                 <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                             </tr>
                         </tbody>

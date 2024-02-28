@@ -14,7 +14,7 @@ namespace Mission08_Team0102.Models
         public Category? Category { get; set; }
         [Required(ErrorMessage = "The Task Name Field is Required.")]
         public string TaskName { get; set; }
-        [Required(ErrorMessage = "The Quadrant Field is Required.")]
+        [Range(1, 4, ErrorMessage = "The Quadrant Field is Required.")]
         public int Quadrant { get; set; }
         public DateOnly? DueDate { get; set; }
         [Required(ErrorMessage = "The Completion Field is Required.")]

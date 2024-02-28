@@ -98,7 +98,7 @@ namespace Mission08_Team0102.Controllers
             _context.Tasklists.Remove(tasklist);
             _context.SaveChanges();
 
-            return RedirectToAction("TasklistView");
+            return RedirectToAction("EditTask");
         }
 
         public IActionResult Quadrant()
