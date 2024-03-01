@@ -8,11 +8,11 @@ namespace Mission08_Team0102.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskSubmissionContext _context;
+        private TaskSubmissionContext _repo;
 
         public HomeController(TaskSubmissionContext temp)
         {
-            _context = temp;
+            _repo = temp;
         }
 
         public IActionResult Index()
@@ -23,7 +23,7 @@ namespace Mission08_Team0102.Controllers
         [HttpGet]
         public IActionResult AddTask()
         {
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
@@ -35,14 +35,14 @@ namespace Mission08_Team0102.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Tasklists.Add(response); 
-                _context.SaveChanges();
+                _repo.Tasklists.Add(response); 
+                _repo.SaveChanges();
 
                 return View("Index", response);
             }
             else //invalid data
             {
-                ViewBag.Categories = _context.Categories
+                ViewBag.Categories = _repo.Categories
                     .OrderBy(x => x.CategoryName)
                     .ToList();
 
@@ -52,10 +52,10 @@ namespace Mission08_Team0102.Controllers
 
         public IActionResult EditTask()
         {
-            var tasks = _context.Tasklists
+            var tasks = _repo.Tasklists
                 .OrderBy(x => x.TaskName).ToList();
 
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .ToList();
 
             return View(tasks);
@@ -64,10 +64,10 @@ namespace Mission08_Team0102.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var recordToEdit = _context.Tasklists
+            var recordToEdit = _repo.Tasklists
                 .Single(x => x.TaskId == id);
 
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .OrderBy(x => x.CategoryName)
                 .ToList();
 
@@ -77,8 +77,8 @@ namespace Mission08_Team0102.Controllers
         [HttpPost]
         public IActionResult Edit(Tasklist updatedInfo)
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
+            _repo.Update(updatedInfo);
+            _repo.SaveChanges();
 
             return RedirectToAction("EditTask");
         }
@@ -86,7 +86,7 @@ namespace Mission08_Team0102.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var recordToDelete = _context.Tasklists
+            var recordToDelete = _repo.Tasklists
                 .Single(x => x.TaskId == id);
 
             return View(recordToDelete);
@@ -95,18 +95,18 @@ namespace Mission08_Team0102.Controllers
         [HttpPost]
         public IActionResult Delete(Tasklist tasklist)
         {
-            _context.Tasklists.Remove(tasklist);
-            _context.SaveChanges();
+            _repo.Tasklists.Remove(tasklist);
+            _repo.SaveChanges();
 
             return RedirectToAction("EditTask");
         }
 
         public IActionResult Quadrant()
         {
-            var tasks = _context.Tasklists
+            var tasks = _repo.Tasklists
                 .OrderBy(x => x.TaskName).ToList();
 
-            ViewBag.Categories = _context.Categories
+            ViewBag.Categories = _repo.Categories
                 .ToList();
 
             return View(tasks);
