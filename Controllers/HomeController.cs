@@ -8,9 +8,9 @@ namespace Mission08_Team0102.Controllers
 {
     public class HomeController : Controller
     {
-        private TaskSubmissionContext _repo;
+        private IRepository _repo;
 
-        public HomeController(TaskSubmissionContext temp)
+        public HomeController(IRepository temp)
         {
             _repo = temp;
         }
@@ -35,8 +35,7 @@ namespace Mission08_Team0102.Controllers
         {
             if (ModelState.IsValid)
             {
-                _repo.Tasklists.Add(response); 
-                _repo.SaveChanges();
+                _repo.Add(response);
 
                 return View("Index", response);
             }
@@ -78,7 +77,6 @@ namespace Mission08_Team0102.Controllers
         public IActionResult Edit(Tasklist updatedInfo)
         {
             _repo.Update(updatedInfo);
-            _repo.SaveChanges();
 
             return RedirectToAction("EditTask");
         }
@@ -96,7 +94,6 @@ namespace Mission08_Team0102.Controllers
         public IActionResult Delete(Tasklist tasklist)
         {
             _repo.Tasklists.Remove(tasklist);
-            _repo.SaveChanges();
 
             return RedirectToAction("EditTask");
         }
