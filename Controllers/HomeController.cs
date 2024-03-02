@@ -93,7 +93,7 @@ namespace Mission08_Team0102.Controllers
         [HttpPost]
         public IActionResult Delete(Tasklist tasklist)
         {
-            _repo.Tasklists.Remove(tasklist);
+            _repo.Remove(tasklist);
 
             return RedirectToAction("EditTask");
         }
